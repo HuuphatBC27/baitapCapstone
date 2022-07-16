@@ -21,10 +21,17 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <link rel="stylesheet" href="/controller/main.js" />
-    <link rel="stylesheet" href="/scss/main.scss" />
+    <link rel="stylesheet" href="/Sass/css/main.css" />
   </head>
   <body>
-    <div class="cotainer"></div>
+    <header class="header">
+      <h1 class="text-center mb-5">Danh Sách Sản Phẩm</h1>
+    </header>
+    <section class="banner">
+      <div class="cotainer">
+        <div id="danhSachSp" class="row"></div>
+      </div>
+    </section>
 
     <!-- Bootstrap JavaScript Libraries -->
     <script
@@ -38,5 +45,8 @@
       integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./models/product.js"></script>
+    <script src="/controller/main.js"></script>
   </body>
 </html>
