@@ -10,15 +10,4 @@ img {
 
 a {
   text-decoration: none;
-}
-
-.container {
-  width: 50%;
-}
-
-body {
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(to left, #8942a8, #ba382f);
-  overflow: hidden;
 }/*# sourceMappingURL=main.css.map */

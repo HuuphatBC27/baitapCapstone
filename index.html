@@ -20,18 +20,85 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
     <link rel="stylesheet" href="/controller/main.js" />
     <link rel="stylesheet" href="/Sass/css/main.css" />
   </head>
   <body>
     <header class="header">
       <h1 class="text-center mb-5">Danh Sách Sản Phẩm</h1>
+      <div class="d-flex bd-highlight">
+        <div class="p-2 w-100 bd-highlight header-content-right">
+          <label for="cars">Loại sản phẩm:</label>
+
+          <select name="cars" id="cars">
+            <optgroup label="Các loại sản phẩm">
+              <option>Các loại sản phẩm</option>
+              <option value="iphone">Iphone</option>
+              <option value="samsung">SamSung</option>
+              <option value="other">sảm phẩm khác</option>
+            </optgroup>
+          </select>
+        </div>
+        <div
+          class="p-2 flex-shrink-1 bd-highlight header-content-left text-left"
+        >
+          <!-- button hiển thị modal -->
+          <!-- Button trigger modal -->
+          <button
+            type="button"
+            class="btn btn-light"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            <i class="fa-solid fa-cart-shopping" style="font-size: 50px"></i>
+          </button>
+        </div>
+      </div>
     </header>
-    <section class="banner">
-      <div class="cotainer">
+
+    <section class="banner pt-5">
+      <div class="container">
         <div id="danhSachSp" class="row"></div>
       </div>
     </section>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">...</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Purchase
+            </button>
+            <button type="button" class="btn btn-primary">Clear Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Bootstrap JavaScript Libraries -->
     <script
@@ -46,7 +113,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="./models/product.js"></script>
+    <script src="/services/productAPi.js"></script>
+    <script src="/models/product.js"></script>
     <script src="/controller/main.js"></script>
   </body>
 </html>
