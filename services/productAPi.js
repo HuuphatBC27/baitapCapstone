@@ -1,4 +1,4 @@
-let baseUrl = "https://62bc904d6b1401736cfd0eb4.mockapi.io/baitapCapstone";
+var baseUrl = "https://62bc904d6b1401736cfd0eb4.mockapi.io/baitapCapstone";
 
 // lấy sp
 
