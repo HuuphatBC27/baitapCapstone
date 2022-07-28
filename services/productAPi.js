@@ -2,7 +2,7 @@ var baseUrl = "https://62bc904d6b1401736cfd0eb4.mockapi.io/baitapCapstone";
 
 // lấy sp
 
-function getProducts(search) {
+function getProducts(search, productId) {
   return axios({
     url: baseUrl,
     method: "GET",
@@ -18,5 +18,12 @@ function apiAddProducts(product) {
     url: baseUrl,
     method: " POST",
     data: product,
+  });
+}
+// lấy chi tiết sản phẩm
+function apiGetProductDetail(productId) {
+  return axios({
+    url: `${baseUrl}/${productId}`,
+    method: "GET",
   });
 }

@@ -14,8 +14,7 @@ function main() {
         product.forontCamera,
         product.img,
         product.desc,
-        product.type,
-        product.quantity
+        product.type
       );
     }
 
