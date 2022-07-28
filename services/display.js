@@ -10,16 +10,18 @@ function display(products) {
       <img src="${product.img}" alt="" />
     </div>
     
-    <div class = "card-text">
+    <div class = "card-text" id='card-text'>
     
-    <h1>${product.name}</h1>
+    <h1 style="font-size:2rem">${product.name}</h1>
     <h5>${product.price}</h5>
-    <span>${product.desc}</span>
-    
-    <button id="addCart${product.id}"  class= "btn btn-success ms-3 btnSp" 
-    data-bs-toggle = "modal" data-bs-target ="#exampleModal" data-type = "push" data-id = '${product.id}'
+    <p>${product.desc}</p>
+
+    <div class="d-flex justify-content-end" id="btnAdd">
+    <button id="addCart"  class= "btn btn-success btnSp " 
+    data-type = "push" data-id = '${product.id}'
      > 
-    Thêm vào giỏ hàng</button>
+     Thêm vào giỏ hàng</button>
+     </div>
     </div>
       
     </div>
@@ -33,50 +35,34 @@ function display(products) {
 }
 
 // lắng nge button
-document
-  .getElementById("danhSachSp")
-  .addEventListener("click", handleAddProduct);
-function handleAddProduct(event) {
-  let type = event.target.getAttribute("data-type");
-  let id = event.target.getAttribute("data-id");
-  // console.log(event);
 
-  switch (type) {
-    case "push":
-      selectProduct(id);
-      break;
 
-    default:
-      break;
-  }
-}
-
-cartProduct = [];
-function selectProduct(productId) {
-  apiGetProductDetail(productId)
-    .then(function (result) {
-      // thành công
-      let products = result.data;
-      console.log(products);
-      let cartItem = [
-        {
-          product: {
-            id: products.id,
-            img: products.img,
-            name: products.name,
-            price: products.price,
-          },
-          quantity: 1,
-        },
-      ];
-      cartProduct.push(cartItem);
-      cartRender();
-      console.log(cartProduct);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-}
+// cartProduct = [];
+// function selectProduct(productId) {
+//   apiGetProductDetail(productId)
+//     .then(function (result) {
+//       // thành công
+//       let products = result.data;
+//       console.log(products);
+//       let cartItem = [
+//         {
+//           product: {
+//             id: products.id,
+//             img: products.img,
+//             name: products.name,
+//             price: products.price,
+//           },
+//           quantity: 1,
+//         },
+//       ];
+//       cartProduct.push(cartItem);
+//       cartRender();
+//       console.log(cartProduct);
+//     })
+//     .catch(function (error) {
+//       console.log(error);
+//     });
+// }
 
 //render
 

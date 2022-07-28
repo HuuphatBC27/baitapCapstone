@@ -7,7 +7,7 @@ function Product(
   frontCamera,
   img,
   desc,
-  type
+  type, 
 ) {
   // thuộc tính
   this.id = id;

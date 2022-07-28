@@ -89,23 +89,18 @@
             ></button>
           </div>
           <div class="modal-body">
-            <div class="cart-row">
-              <table>
+            <table class="table">
+              <thead>
                 <tr>
-                  <th>STT</th>
                   <th>Hình</th>
                   <th>Tên Sản Phẩm</th>
                   <th>Đơn giá</th>
                   <th>Số lượng</th>
                 </tr>
-                <tbody id="myCart"></tbody>
-              </table>
-            </div>
-            <div class="cart-items"></div>
-            <div class="cart-total">
-              <strong class="cart-total-title">Tổng Cộng:</strong>
-              <span class="cart-total-price">0VNĐ</span>
-            </div>
+              </thead>
+              <tbody id="myCart"></tbody>
+            </table>
+           
           </div>
           <div class="modal-footer">
             <button
@@ -142,9 +137,9 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/web/addProduct.js"></script>
     <script src="/models/product.js"></script>
+    <script src="/services/productAPi.js"></script>
     <script src="/services/cart.js"></script>
     <script src="/services/CartItem.js"></script>
-    <script src="/services/productAPi.js"></script>
     <script src="/services/display.js"></script>
     <script src="/controller/main.js"></script>
   </body>
