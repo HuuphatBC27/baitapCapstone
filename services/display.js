@@ -16,8 +16,8 @@ function display(products) {
     <h5>${product.price}</h5>
     <span>${product.desc}</span>
     
-    <button  class= "btn btn-success ms-3 btnSp" 
-    data-bs-toggle = "modal" data-bs-target ="#exampleModal" data-type = "add" data-id = '${product.id}'
+    <button id="addCart${product.id}"  class= "btn btn-success ms-3 btnSp" 
+    data-bs-toggle = "modal" data-bs-target ="#exampleModal" data-type = "push" data-id = '${product.id}'
      > 
     Thêm vào giỏ hàng</button>
     </div>
@@ -39,9 +39,10 @@ document
 function handleAddProduct(event) {
   let type = event.target.getAttribute("data-type");
   let id = event.target.getAttribute("data-id");
+  // console.log(event);
 
   switch (type) {
-    case "add":
+    case "push":
       selectProduct(id);
       break;
 
@@ -50,8 +51,8 @@ function handleAddProduct(event) {
   }
 }
 
+cartProduct = [];
 function selectProduct(productId) {
-  cart = [];
   apiGetProductDetail(productId)
     .then(function (result) {
       // thành công
@@ -68,20 +69,43 @@ function selectProduct(productId) {
           quantity: 1,
         },
       ];
-      console.log(cartItem);
-
-      // for (let i = 0; i < cart.length; i++) {
-      //   document.getElementById("myCart").innerHTML = `
-      //   <tr>
-      //   <td>${products.id}</td>
-      //   <td></td>
-      //   <td></td>
-      //   <td></td>
-      //   <td></td>
-      //   </tr>`;
-      // }
+      cartProduct.push(cartItem);
+      cartRender();
+      console.log(cartProduct);
     })
     .catch(function (error) {
       console.log(error);
     });
+}
+
+//render
+
+function cartRender(product) {
+  for (let i = 0; i < cartProduct.length; i++) {
+    let cart = "";
+    let products = new Products(
+      products.id,
+      products.name,
+      products.price,
+      products.screen,
+      products.backCamera,
+      products.frontCamera,
+      products.img,
+      products.desc,
+      products.type
+    );
+  }
+  cart += `<tr>
+  <td> ${products.id}</td>
+        <td class="clear-tbl">
+              <img src="${product.img}" alt="" style="width:50px;height:50px">
+        </td>
+        <td>${product.name}</td>
+        <td>${product.price}</td>
+        <td><button data-type="delete" data-id="${product.id}"  class="btn-del-product"><i class="fa-solid fa-trash"></i></button></td>
+      </tr>
+      `;
+
+  //Render danh sách sản phẩm
+  document.getElementById("myCart").innerHTML += cart;
 }
